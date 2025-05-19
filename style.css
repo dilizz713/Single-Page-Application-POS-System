@@ -276,6 +276,17 @@ table {
         text-align: center;
     }
 
+    .btn-set {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .btn-set >  .btn {
+        flex: 1 1 40%;
+        max-width: 30%;
+
+    }
     .main-content {
         padding: 15px;
     }
