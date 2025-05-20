@@ -8,7 +8,7 @@ function loadOrderHistoryTable() {
         const customer = customers_db.find(c => c.id.toString() === order.customerId.toString());
         const customerName = customer ? customer.name : "Unknown";
 
-        const total = order.items.reduce((sum, item) => sum + item.total, 0);
+        const total = order.items.reduce((sum, item) => sum + (item.total ?? (Number(item.qty) * Number(item.unitPrice) || 0)), 0);
 
         const row = `
             <tr>
@@ -16,8 +16,7 @@ function loadOrderHistoryTable() {
                 <td>${order.date}</td>
                 <td>${order.customerId}</td>
                 <td>${customerName}</td>
-                <td>${total.toFixed(2)}</td>
-                <td><button class="btn btn-primary btn-sm invoice-btn">Invoice</button></td>
+                <td>${total.toFixed(2)}</td>        
             </tr>
         `;
 
@@ -29,5 +28,4 @@ $(document).ready(function () {
     $("#view-history").on("click", function () {
         loadOrderHistoryTable();
     });
-
 });

@@ -51,7 +51,6 @@ function selectCustomer() {
 
     customers_db.forEach(c => {
         customerSelect.append(`<option value="${c.id}">${c.name}</option>`);
-
     });
 
 }
@@ -157,7 +156,6 @@ $(document).on("click", "#order-tbody tr", function () {
     selectedItemId = item.itemId;
     selectedItemPrice = parseFloat(item.unitPrice);
 
-
 });
 
 /*$('#update-order').on('click', function () {
@@ -219,7 +217,6 @@ $(document).on("click", "#order-tbody tr", function () {
 
 });*/
 
-
 $(document).on("click", ".delete-order", function (e) {
     e.stopPropagation();
     const index = $(this).closest('tr').data('index');
@@ -235,7 +232,6 @@ $("#reset-order-form").on("click", function () {
     selectedItemPrice = 0;
     editIndex = null;
 });
-
 
 $("#place-order").on("click", function () {
     if (tempOrderItems.length === 0) {
@@ -296,6 +292,9 @@ $("#place-order").on("click", function () {
     $("#add-order").show();
     $("#update-order").hide();
 });
+
+
+
 
 
 

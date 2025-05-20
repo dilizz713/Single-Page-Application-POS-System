@@ -51,7 +51,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <div>
             <h4>Total Customers</h4>
-            <h2>150</h2>
+            <h2 id="total-customers"></h2>
           </div>
           <i class="bi bi-people-fill"></i>
         </div>
@@ -62,7 +62,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <div>
             <h4>Total Items</h4>
-            <h2>325</h2>
+            <h2 id="total-items"></h2>
           </div>
           <i class="bi bi-boxes"></i>
         </div>
@@ -73,7 +73,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <div>
             <h4>Today's Orders</h4>
-            <h2>18</h2>
+            <h2 id="today-orders"></h2>
           </div>
           <i class="bi bi-cart-check-fill"></i>
         </div>
@@ -273,7 +273,6 @@
           <th>Customer ID</th>
           <th>Customer Name</th>
           <th>Order Total</th>
-          <th>Invoice</th>
         </tr>
         </thead>
         <tbody id="order-history-tbody">
@@ -284,64 +283,16 @@
 </div>
 
 
-<!-- Main Page Content -->
-<div class="container" id="invoice-content">
-  <div class="main-content">
-    <div class="invoice-box">
-      <div class="invoice-header d-flex justify-content-between align-items-center">
-        <h1>INVOICE</h1>
-        <div>
-          <strong>Date:</strong> <span></span><br>
-          <strong>Order ID:</strong> <span></span>
-        </div>
-      </div>
-
-      <div class="row invoice-details mb-4">
-        <div class="col-sm-6">
-          <p><strong>Customer ID:</strong></p>
-          <p><strong>Customer Name:</strong> </p>
-        </div>
-      </div>
-
-      <table class="table table-bordered text-center">
-        <thead>
-        <tr>
-          <th>Item Name</th>
-          <th>Qty</th>
-          <th>Unit Price</th>
-          <th>Total Price</th>
-        </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-
-      <div class="row justify-content-end">
-        <div class="col-md-6">
-          <table class="table table-borderless">
-            <tbody>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="text-center mt-4 no-print">
-        <button onclick="window.print()" class="btn btn-primary">Print Invoice</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <script src="lib/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+<script type="module" src="pos/controller/DashboardController.js"></script>
 <script type="module" src="pos/controller/CustomerController.js"></script>
 <script type="module" src="pos/controller/ItemController.js"></script>
 <script type="module" src="pos/controller/OrderController.js"></script>
 <script type="module" src="pos/controller/OrderDetailsController.js"></script>
-<script type="module" src="pos/controller/InvoiceContoller.js"></script>
+
 
 <script>
   const today = new Date();
@@ -396,14 +347,7 @@
     $("#order-history-content").css("display", "block");
     $("#invoice-content").css("display", "none");
   })
-  $("#invoice-btn").on('click', function () {
-    $("#dashboard-content").css("display", "none");
-    $("#customer-content").css("display", "none");
-    $("#item-content").css("display", "none");
-    $("#order-content").css("display", "none");
-    $("#order-history-content").css("display", "none");
-    $("#invoice-content").css("display", "block");
-  })
+
 
   $('#logout-btn').on('click', function () {
     if (confirm('Are you sure you want to logout?')){
