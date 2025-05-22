@@ -44,16 +44,6 @@ $('#customer-save').on('click', function () {
         })
     }else{
 
-        /*let customer_data = {
-            id: currentCustomerId,
-            name: name,
-            address: address,
-            nic: nic,
-            mobile: mobile,
-            email: email,
-
-        };*/
-
         let customer_data = new CustomerModel(currentCustomerId , name, address, nic, mobile, email);
         customers_db.push(customer_data);
 
